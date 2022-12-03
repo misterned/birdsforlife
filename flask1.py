@@ -26,5 +26,5 @@ birds = [
 ]
 
 def home():
-    return "<h1>Distant Reading Archive</h1>"
+    return "<h1>Le monde des oiseaux est magique</h1>"
 app.run()
