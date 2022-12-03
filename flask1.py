@@ -1,30 +1,14 @@
-import flask
+from flask import Flask, render_template
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 app.config["DEBUG"] = True
-@app.route('/', methods=['GET'])
 
-birds = [
-{'speciescode': 'A067',
-'speciesname': 'Bucephala clangula',
-'popsize_etc': 2250,
-'population_trend_long_magnitude_min': 3000,
-},
-    
-{'speciescode': 'A075',
-'speciesname': 'Haliaeetus albicilla',
-'popsize_etc': 25,
-'population_trend_long_magnitude_min': 100,
-},
-    
-{'speciescode': 'A084',
-'speciesname': 'Circus pygargus',
-'popsize_etc': 33,
-'population_trend_long_magnitude_min': 700,
-}
-]
+list_latin = ['Vanellus vanelli', 'Ardea cinerea', 'Carduelis carduelis']
+tuple_francais = ('Vanneau huppé', 'Héron Cendré', 'Chardonneret élégant')
 
+@app.route("/")
 def home():
-    return "<h1>Le monde des oiseaux est magique</h1>"
+    return render_template("home.html", message = "le dernier oiseau "
+                           +"que j'ai photographié est un "+tuple_francais[-1])
 app.run()
