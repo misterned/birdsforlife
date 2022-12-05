@@ -12,5 +12,5 @@ tuple_francais = ('Vanneau huppé', 'Héron Cendré', 'Chardonneret élégant')
 def home():
     return render_template("home.html", message = "le dernier oiseau "
                            +"que j'ai photographié est un "
-                           + tuple_francais[-1], nb = len(tuple_francais))
+                           + tuple_francais[-1], nb = len(tuple_francais), franc = tuple_francais)
 app.run()
